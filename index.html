@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engagement Invitation - Muneeb & Shifa</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@600;700&family=Cinzel:wght@400;600;700;800&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: {
+                            DEFAULT: '#FFF7FA',
+                            card: '#FDEAF1',
+                            dark: '#F9DCE7'
+                        },
+                        royalblue: {
+                            DEFAULT: '#D98BAA',
+                            dark: '#E8B6C9',
+                            light: '#E7A5BE'
+                        },
+                        gold: {
+                            light: '#F8D5E2',
+                            DEFAULT: '#E9A8C1',
+                            dark: '#D98BAA',
+                            shimmer: '#F2C0D3'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Cinzel', 'serif'],
+                        display: ['Cinzel Decorative', 'serif'],
+                        script: ['Great Vibes', 'cursive'],
+                        calligraphy: ['Playfair Display', 'serif'],
+                        sans: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #FFFAFC;
+            background-image: 
+                radial-gradient(circle at 50% 30%, #FCE4EC 0%, #E8B6C9 70%),
+                radial-gradient(circle at 10% 90%, rgba(255, 20, 147, 0.1) 0%, transparent 40%);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            user-select: none;
+        }
+
+        /* Metallic Gold Gradient Text */
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #D98BAA 0%, #F7D5E2 40%, #B88E1D 70%, #C9829E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-box-shadow {
+            box-shadow: 0 15px 35px -5px rgba(194, 24, 91, 0.5), 0 0 20px rgba(255, 20, 147, 0.2);
+        }
+
+        /* 3D Envelope Container & Styles */
+        .envelope-wrapper {
+            perspective: 1000px;
+        }
+
+        .envelope {
+            position: relative;
+            width: 310px;
+            height: 210px;
+            background: linear-gradient(145deg, #D98BAA, #E8B6C9);
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 20, 147, 0.25);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 20, 147, 0.4);
+        }
+
+        @media (min-width: 640px) {
+            .envelope {
+                width: 440px;
+                height: 300px;
+            }
+        }
+
+        .envelope:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Envelope Flap */
+        .envelope-flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 155px solid transparent;
+            border-right: 155px solid transparent;
+            border-top: 125px solid #F2C8D8;
+            transform-origin: top;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s, z-index 0.1s 0.5s;
+            z-index: 5;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5));
+        }
+
+        @media (min-width: 640px) {
+            .envelope-flap {
+                border-left-width: 220px;
+                border-right-width: 220px;
+                border-top-width: 175px;
+            }
+        }
+
+        .envelope-pocket {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 155px solid #D98BAA;
+            border-right: 155px solid #D98BAA;
+            border-bottom: 110px solid #F0C0D2;
+            border-radius: 0 0 8px 8px;
+            z-index: 4;
+        }
+
+        @media (min-width: 640px) {
+            .envelope-pocket {
+                border-left-width: 220px;
+                border-right-width: 220px;
+                border-bottom-width: 150px;
+            }
+        }
+
+        /* Golden Wax Seal */
+        .wax-seal {
+            position: absolute;
+            top: 95px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 58px;
+            height: 58px;
+            background: radial-gradient(circle, #F7D5E2 0%, #E9A8C1 70%, #C9829E 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.6), inset 0 2px 4px rgba(255,255,255,0.5);
+            z-index: 6;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            border: 2px solid #E9A8C1;
+        }
+
+        @media (min-width: 640px) {
+            .wax-seal {
+                top: 140px;
+                width: 75px;
+                height: 75px;
+            }
+        }
+
+        .wax-seal-inner {
+            width: 82%;
+            height: 82%;
+            border: 1.5px dashed rgba(194, 24, 91, 0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            color: #D98BAA;
+            text-shadow: 0 1px 1px rgba(255,105,180,0.6);
+            background: radial-gradient(circle, #FCE7EF 0%, #E9A8C1 100%);
+        }
+
+        .wax-seal {
+            padding: 0;
+            appearance: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+            outline-offset: 5px;
+        }
+        .wax-seal:hover {
+            transform: translateX(-50%) scale(1.06);
+        }
+        .wax-seal:focus-visible {
+            outline: 2px solid #fff0f5;
+        }
+        /* Instruction below the envelope; hand points upward toward the seal */
+        .seal-instruction {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 7px;
+            margin-top: 24px;
+            color: #7d2949;
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            font-size: 11px;
+            font-weight: 700;
+            text-shadow: 0 1px 0 rgba(255,255,255,.65);
+        }
+        .seal-pointer {
+            color: #9b4264;
+            font-size: 27px;
+            line-height: 1;
+            pointer-events: none;
+            filter: drop-shadow(0 2px 2px rgba(75, 24, 44, 0.25));
+            animation: sealPointUp 1.1s ease-in-out infinite;
+        }
+        @keyframes sealPointUp {
+            0%, 100% { transform: translateY(4px); }
+            50% { transform: translateY(-3px); }
+        }
+        @media (min-width: 640px) {
+            .seal-instruction { font-size: 12px; margin-top: 28px; }
+            .seal-pointer { font-size: 30px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .seal-pointer { animation: none; }
+        }
+
+        /* Open State Animations */
+        .envelope.open .envelope-flap {
+            transform: rotateX(180deg);
+            z-index: 1;
+        }
+
+        .envelope.open .wax-seal {
+            opacity: 0;
+            transform: translateX(-50%) scale(0.5);
+            pointer-events: none;
+        }
+
+        /* Card Slide Out */
+        .preview-card-inside {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            right: 12px;
+            bottom: 12px;
+            background: #FDEAF1;
+            border-radius: 6px;
+            z-index: 2;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.6s;
+            box-shadow: 0 0 10px rgba(0,0,0,0.4);
+            border: 1px solid #E9A8C1;
+        }
+
+        .envelope.open .preview-card-inside {
+            transform: translateY(-120px) scale(1.05);
+        }
+
+        @media (min-width: 640px) {
+            .envelope.open .preview-card-inside {
+                transform: translateY(-160px) scale(1.05);
+            }
+        }
+
+        /* Confetti Canvas */
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 50;
+        }
+
+        /* Floral Corner Ornaments on Outer Card */
+        .floral-corner {
+            position: absolute;
+            width: 75px;
+            height: 75px;
+            pointer-events: none;
+            z-index: 15;
+        }
+        @media (min-width: 640px) {
+            .floral-corner { width: 110px; height: 110px; }
+        }
+
+        .fl-top-left { top: 0; left: 0; }
+        .fl-top-right { top: 0; right: 0; transform: scaleX(-1); }
+        .fl-bottom-left { bottom: 0; left: 0; transform: scaleY(-1); }
+        .fl-bottom-right { bottom: 0; right: 0; transform: scale(-1); }
+
+        /* Outer Royal Blue Floral Border Frame */
+        .royal-border-frame {
+            border: 10px solid #D98BAA;
+            border-image: linear-gradient(to bottom right, #D98BAA, #E7A5BE, #D98BAA) 1;
+            position: relative;
+        }
+
+        /* Strong readable contrast for all interactive button labels and icons */
+        #copy-link-btn, #music-toggle, #share-btn,
+        #gcal-btn, #map-btn, #rsvp-modal-btn, #close-rsvp,
+        #rsvp-modal button[type="submit"] {
+            color: #542238 !important;
+            text-shadow: none !important;
+        }
+        #copy-link-btn i, #music-toggle i, #share-btn i,
+        #gcal-btn i, #map-btn i, #rsvp-modal-btn i {
+            color: #542238 !important;
+            opacity: 1 !important;
+        }
+        #copy-link-btn span, #music-toggle span, #share-btn span,
+        #gcal-btn span, #map-btn span, #rsvp-modal-btn span {
+            color: #542238 !important;
+            opacity: 1 !important;
+        }
+
+        /* Luxe blush-and-gold engagement countdown */
+        .countdown-card {
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+            background:
+                radial-gradient(ellipse at 50% -15%, rgba(255, 224, 235, 0.22), transparent 58%),
+                linear-gradient(145deg, #71364f 0%, #8f4965 48%, #653047 100%);
+            border: 1px solid rgba(235, 198, 143, 0.9);
+            box-shadow: 0 16px 36px rgba(83, 31, 54, 0.25), inset 0 0 0 4px rgba(235, 198, 143, 0.10), inset 0 1px 0 rgba(255,255,255,0.18);
+        }
+        .countdown-card::before {
+            content: '';
+            position: absolute;
+            inset: 8px;
+            border: 1px solid rgba(235, 198, 143, 0.38);
+            border-radius: 13px;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .countdown-number {
+            background: linear-gradient(155deg, rgba(255, 239, 245, 0.17), rgba(255, 214, 229, 0.08));
+            border: 1px solid rgba(242, 211, 164, 0.55);
+            box-shadow: 0 5px 14px rgba(42, 13, 27, 0.14), inset 0 1px 0 rgba(255,255,255,0.13);
+            font-variant-numeric: tabular-nums;
+            backdrop-filter: blur(4px);
+        }
+        .countdown-label { color: #f4d9e3; letter-spacing: 0.13em; }
+        .countdown-number > div:first-child { color: #fff1d5 !important; text-shadow: 0 2px 12px rgba(255, 218, 160, 0.16); }
+        .countdown-heading { color: #ffe5b6; text-shadow: 0 2px 12px rgba(31, 8, 18, 0.2); }
+        .countdown-date { color: #f8e4eb; }
+        .countdown-message { color: #f7c8da; }
+        @media (max-width: 380px) {
+            .countdown-card { padding-left: 12px; padding-right: 12px; }
+            .countdown-number { padding-top: 10px; padding-bottom: 10px; }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #E8B6C9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E9A8C1;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="text-gray-800 min-h-screen flex flex-col justify-between items-center relative selection:bg-gold selection:text-royalblue-dark">
+
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- Header & Share Bar -->
+    <header class="w-full max-w-4xl px-4 py-4 flex justify-between items-center z-40">
+        <div class="flex items-center space-x-2">
+            <span class="font-serif text-xs md:text-sm text-gold-light tracking-widest uppercase">M & S • 2026</span>
+        </div>
+        <div class="flex items-center space-x-2 sm:space-x-3">
+            <button id="copy-link-btn" class="p-2.5 rounded-full bg-royalblue/80 border border-gold/40 text-gold-light hover:bg-gold hover:text-royalblue-dark transition-all duration-300 shadow-md text-xs sm:text-sm flex items-center space-x-1.5" title="Copy Website Link">
+                <i class="fas fa-link"></i>
+                <span class="hidden sm:inline">Copy Link</span>
+            </button>
+            <button id="music-toggle" class="p-2.5 rounded-full bg-royalblue/80 border border-gold/40 text-gold-light hover:bg-gold hover:text-royalblue-dark transition-all duration-300 shadow-md text-xs sm:text-sm flex items-center space-x-1.5">
+                <i id="music-icon" class="fas fa-music"></i>
+                <span id="music-text" class="hidden sm:inline">Audio</span>
+            </button>
+            <button id="share-btn" class="px-3.5 py-2 rounded-full bg-gold text-royalblue-dark font-semibold hover:bg-gold-light transition-all duration-300 shadow-md text-xs sm:text-sm flex items-center space-x-1.5">
+                <i class="fab fa-whatsapp text-lg"></i>
+                <span>Share</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- MAIN INTERACTIVE SECTION -->
+    <main class="w-full max-w-2xl px-3 sm:px-6 flex-grow flex flex-col items-center justify-center my-4 z-30">
+        
+        <!-- ENVELOPE INITIAL VIEW -->
+        <div id="envelope-section" class="flex flex-col items-center justify-center py-8">
+            <div class="envelope-wrapper">
+                <div id="envelope" class="envelope">
+                    <!-- Envelope Top Flap -->
+                    <div class="envelope-flap"></div>
+                    
+                    <!-- The wax seal is the only way to open the envelope -->
+                    <button type="button" id="seal-btn" class="wax-seal" aria-label="Tap the M and S wax seal to open the invitation">
+                        <span class="wax-seal-inner">
+                            <span class="text-base sm:text-lg tracking-tighter">M&amp;S</span>
+                        </span>
+                    </button>
+
+                    <!-- Inner Card Preview -->
+                    <div class="preview-card-inside flex flex-col items-center justify-center p-3 text-center">
+                        <div class="w-8 h-8 rounded-full border border-gold/50 flex items-center justify-center mb-1">
+                            <i class="fas fa-ring text-gold text-xs"></i>
+                        </div>
+                        <p class="font-serif text-[10px] sm:text-xs text-royalblue uppercase tracking-widest">Engagement</p>
+                        <p class="font-script text-royalblue-light text-base sm:text-xl">Muneeb & Shifa</p>
+                    </div>
+
+                    <!-- Envelope Pocket -->
+                    <div class="envelope-pocket"></div>
+                </div>
+            </div>
+
+            <div class="seal-instruction" aria-label="Tap the seal to open the invitation">
+                <span class="seal-pointer" aria-hidden="true"><i class="fas fa-hand-point-up"></i></span>
+                <span>Tap seal to open</span>
+            </div>
+
+        </div>
+
+        <!-- FULL INVITATION CARD (REVEALED) -->
+        <div id="card-section" class="hidden w-full transition-all duration-1000 opacity-0 transform translate-y-10">
+            
+            <!-- INVITATION IMAGE -->
+            <div class="w-full flex justify-center">
+                <img src="invitation.png" alt="Muneeb and Shifa Engagement Invitation" class="block w-full max-w-2xl h-auto rounded-xl shadow-2xl">
+            </div>
+
+            <!-- COUNTDOWN CARD -->
+            <section id="countdown-card" class="countdown-card mt-5 sm:mt-7 w-full rounded-2xl px-4 py-6 sm:px-6 sm:py-7 text-center">
+                <div class="relative z-10">
+                    <div class="flex items-center justify-center gap-3 mb-1" aria-hidden="true"><span class="h-px w-8 sm:w-12" style="background:linear-gradient(90deg,transparent,#eac68e)"></span><i class="fas fa-heart text-xs" style="color:#f0cd94"></i><span class="h-px w-8 sm:w-12" style="background:linear-gradient(90deg,#eac68e,transparent)"></span></div>
+                    <p class="countdown-heading font-script text-3xl sm:text-4xl">The Celebration Begins In</p>
+                    <p class="countdown-date mt-2 mb-5 text-[10px] sm:text-xs uppercase font-serif tracking-[0.18em]">Muneeb &amp; Shifa <span style="color:#eac68e">•</span> 25 November 2026 <span style="color:#eac68e">•</span> 8:30 PM</p>
+                <div class="grid grid-cols-4 gap-2 sm:gap-4 max-w-lg mx-auto">
+                    <div class="countdown-number rounded-xl py-3 px-1"><div id="countdown-days" class="font-serif text-2xl sm:text-4xl font-bold" style="color:#71384f">--</div><div class="countdown-label mt-1 text-[8px] sm:text-[10px] font-semibold uppercase">Days</div></div>
+                    <div class="countdown-number rounded-xl py-3 px-1"><div id="countdown-hours" class="font-serif text-2xl sm:text-4xl font-bold" style="color:#71384f">--</div><div class="countdown-label mt-1 text-[8px] sm:text-[10px] font-semibold uppercase">Hours</div></div>
+                    <div class="countdown-number rounded-xl py-3 px-1"><div id="countdown-minutes" class="font-serif text-2xl sm:text-4xl font-bold" style="color:#71384f">--</div><div class="countdown-label mt-1 text-[8px] sm:text-[10px] font-semibold uppercase">Minutes</div></div>
+                    <div class="countdown-number rounded-xl py-3 px-1"><div id="countdown-seconds" class="font-serif text-2xl sm:text-4xl font-bold" style="color:#71384f">--</div><div class="countdown-label mt-1 text-[8px] sm:text-[10px] font-semibold uppercase">Seconds</div></div>
+                </div>
+                    <p id="countdown-message" class="countdown-message mt-5 font-script text-2xl sm:text-3xl">Counting down to our special day</p>
+                    <div class="flex items-center justify-center gap-3 mt-2" aria-hidden="true"><span class="h-px w-8 sm:w-12" style="background:linear-gradient(90deg,transparent,rgba(234,198,142,.75))"></span><i class="fas fa-sparkles text-[10px]" style="color:#eac68e"></i><span class="h-px w-8 sm:w-12" style="background:linear-gradient(90deg,rgba(234,198,142,.75),transparent)"></span></div>
+                </div>
+            </section>
+
+            <!-- ACTION BUTTONS GRID -->
+            <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 w-full">
+                <!-- Add to Calendar -->
+                <a id="gcal-btn" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Engagement+Celebration+-+Muneeb+%26+Shifa&dates=20261125T153000Z/20261125T183000Z&details=We+invite+you+to+join+us+for+our+engagement+celebration!&location=The+Opera+Ballroom,+Block+H,+North+Nazimabad,+Karachi" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-2 py-3 px-4 rounded-xl bg-royalblue/90 hover:bg-royalblue border border-gold/40 text-gold-light text-xs sm:text-sm font-medium transition-all shadow-md">
+                    <i class="far fa-calendar-plus text-gold"></i>
+                    <span>Google Calendar</span>
+                </a>
+
+                <!-- Venue Map -->
+                <a id="map-btn" href="https://maps.google.com/?q=The+Opera+Ballroom+Block+H+North+Nazimabad+Karachi" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center space-x-2 py-3 px-4 rounded-xl bg-royalblue/90 hover:bg-royalblue border border-gold/40 text-gold-light text-xs sm:text-sm font-medium transition-all shadow-md">
+                    <i class="fas fa-map-marker-alt text-gold"></i>
+                    <span>Get Directions</span>
+                </a>
+
+                <!-- RSVP Modal Trigger -->
+                <button id="rsvp-modal-btn" class="flex items-center justify-center space-x-2 py-3 px-4 rounded-xl bg-gradient-to-r from-gold-dark via-gold to-gold-dark text-royalblue-dark font-semibold text-xs sm:text-sm transition-all shadow-lg hover:brightness-110">
+                    <i class="fas fa-check-circle"></i>
+                    <span>RSVP &amp; Wishes</span>
+                </button>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="w-full py-4 text-center text-xs text-gold-light/60 z-30 font-light">
+        <p>Engagement Invitation • Muneeb Ur Rehman &amp; Shifa Farhan</p>
+    </footer>
+
+    <!-- RSVP MODAL -->
+    <div id="rsvp-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-royalblue-dark border border-gold/60 rounded-2xl p-6 w-full max-w-md relative shadow-2xl text-left">
+            <button id="close-rsvp" class="absolute top-4 right-4 text-gold-light/60 hover:text-gold-light text-lg">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <h3 class="font-serif text-xl text-gold-light font-bold mb-1">RSVP &amp; Best Wishes</h3>
+            <p class="text-xs text-gray-300 mb-4">Please let us know if you will attend our celebration.</p>
+
+            <form id="rsvp-form" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-serif text-gold-light uppercase tracking-wider mb-1">Your Full Name</label>
+                    <input type="text" id="guest-name" required placeholder="Enter your name" class="w-full bg-royalblue/60 border border-gold/30 rounded-lg px-3 py-2 text-sm text-gray-100 focus:outline-none focus:border-gold">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-serif text-gold-light uppercase tracking-wider mb-1">Number of Guests</label>
+                    <select id="guest-count" class="w-full bg-royalblue/60 border border-gold/30 rounded-lg px-3 py-2 text-sm text-gray-100 focus:outline-none focus:border-gold">
+                        <option value="1 Person">1 Person</option>
+                        <option value="2 Persons">2 Persons</option>
+                        <option value="3 Persons">3 Persons</option>
+                        <option value="Family">Family</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-serif text-gold-light uppercase tracking-wider mb-1">Attendance Status</label>
+                    <div class="grid grid-cols-2 gap-2">
+                        <label class="flex items-center space-x-2 p-2 rounded bg-royalblue/40 border border-gold/20 cursor-pointer">
+                            <input type="radio" name="attendance" value="Joyfully Accepts" checked class="accent-gold">
+                            <span class="text-xs text-gray-200">Joyfully Accepts</span>
+                        </label>
+                        <label class="flex items-center space-x-2 p-2 rounded bg-royalblue/40 border border-gold/20 cursor-pointer">
+                            <input type="radio" name="attendance" value="Regretfully Declines" class="accent-gold">
+                            <span class="text-xs text-gray-200">Declines</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-serif text-gold-light uppercase tracking-wider mb-1">Congratulations Message (Optional)</label>
+                    <textarea id="guest-wishes" rows="2" placeholder="Write your wishes for the couple..." class="w-full bg-royalblue/60 border border-gold/30 rounded-lg px-3 py-2 text-sm text-gray-100 focus:outline-none focus:border-gold"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-3 rounded-lg bg-gold text-royalblue-dark font-serif font-bold hover:bg-gold-light transition-all text-sm uppercase mt-2">
+                    Send via WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-gold text-royalblue-dark px-4 py-2 rounded-full font-medium text-xs shadow-xl opacity-0 transition-opacity duration-300 pointer-events-none z-50 flex items-center space-x-2">
+        <i class="fas fa-info-circle"></i>
+        <span id="toast-msg">Notification</span>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Romantic, piano-like instrumental bed made with Web Audio.
+        // Warm harmonics, gentle arpeggios and a soft pad keep the loop musical rather than beepy.
+        let audioCtx = null;
+        let isMuted = false;
+        let musicTimer = null;
+        let musicStep = 0;
+        let musicEnabled = true;
+        let activeMusicNodes = [];
+        let musicDelay = null;
+        let musicDelayFeedback = null;
+        let musicWet = null;
+
+        // Gentle pop-romance progression: Fmaj7, C/E, Dm7, Bbmaj7.
+        const chordProgression = [
+            [349.23, 440.00, 523.25, 659.25],
+            [329.63, 392.00, 493.88, 587.33],
+            [293.66, 349.23, 440.00, 523.25],
+            [233.08, 293.66, 349.23, 440.00]
+        ];
+        const melody = [
+            523.25, 587.33, 659.25, 587.33, 523.25, 440.00, 493.88, 523.25,
+            587.33, 659.25, 698.46, 659.25, 587.33, 523.25, 440.00, 493.88,
+            523.25, 659.25, 587.33, 523.25, 440.00, 493.88, 523.25, 587.33,
+            659.25, 587.33, 523.25, 440.00, 392.00, 440.00, 493.88, 523.25
+        ];
+
+        function setupMusicAudio() {
+            const AudioContext = window.AudioContext || window.webkitAudioContext;
+            if (!AudioContext) return false;
+            if (!audioCtx) {
+                audioCtx = new AudioContext();
+                // A very subtle echo gives the notes a polished, spacious finish.
+                musicDelay = audioCtx.createDelay(0.8);
+                musicDelay.delayTime.value = 0.28;
+                musicDelayFeedback = audioCtx.createGain();
+                musicDelayFeedback.gain.value = 0.16;
+                musicWet = audioCtx.createGain();
+                musicWet.gain.value = 0.16;
+                musicDelay.connect(musicDelayFeedback);
+                musicDelayFeedback.connect(musicDelay);
+                musicDelay.connect(musicWet);
+                musicWet.connect(audioCtx.destination);
+            }
+            return true;
+        }
+
+        function trackMusicNode(node) {
+            activeMusicNodes.push(node);
+            node.onended = () => {
+                activeMusicNodes = activeMusicNodes.filter(item => item !== node);
+            };
+        }
+
+        function playMusicNote(freq, startTime, duration, volume, voice = 'piano') {
+            if (!audioCtx || isMuted || document.hidden) return;
+            const main = audioCtx.createOscillator();
+            const overtone = audioCtx.createOscillator();
+            const filter = audioCtx.createBiquadFilter();
+            const gain = audioCtx.createGain();
+            const now = Math.max(startTime, audioCtx.currentTime + 0.012);
+            const isPad = voice === 'pad';
+            main.type = isPad ? 'sine' : 'triangle';
+            overtone.type = 'sine';
+            main.frequency.setValueAtTime(freq, now);
+            overtone.frequency.setValueAtTime(freq * (isPad ? 2 : 2.003), now);
+            filter.type = 'lowpass';
+            filter.frequency.setValueAtTime(isPad ? 950 : 2400, now);
+            filter.Q.value = 0.55;
+            const peak = Math.max(0.0001, volume);
+            gain.gain.setValueAtTime(0.0001, now);
+            gain.gain.exponentialRampToValueAtTime(peak, now + (isPad ? 0.55 : 0.035));
+            gain.gain.setTargetAtTime(peak * (isPad ? 0.82 : 0.28), now + (isPad ? 0.6 : 0.12), isPad ? 0.9 : 0.22);
+            gain.gain.setTargetAtTime(0.0001, now + duration * 0.72, Math.max(0.12, duration * 0.18));
+            main.connect(filter);
+            overtone.connect(filter);
+            filter.connect(gain);
+            gain.connect(audioCtx.destination);
+            // Send a small amount to the soft echo bus.
+            gain.connect(musicDelay);
+            trackMusicNode(main);
+            trackMusicNode(overtone);
+            main.start(now);
+            overtone.start(now);
+            main.stop(now + duration + 0.3);
+            overtone.stop(now + duration + 0.3);
+        }
+
+        function playWarmChord(notes, startTime, duration) {
+            // Soft sustained harmony underneath the brighter piano-like notes.
+            notes.forEach((freq, index) => {
+                playMusicNote(freq, startTime + index * 0.018, duration, 0.014, 'pad');
+            });
+            playMusicNote(notes[0] / 2, startTime, duration * 0.95, 0.027, 'pad');
+        }
+
+        function musicBeat() {
+            if (!audioCtx || isMuted || document.hidden || !musicEnabled) return;
+            const now = audioCtx.currentTime + 0.035;
+            const step = musicStep % 32;
+            const chordIndex = Math.floor(musicStep / 32) % chordProgression.length;
+            const chord = chordProgression[chordIndex];
+            if (step === 0) playWarmChord(chord, now, 7.4);
+
+            // Gentle rolling arpeggio, like a soft piano pattern.
+            const arp = [chord[0], chord[1], chord[2], chord[3], chord[2], chord[1], chord[2], chord[3]];
+            const arpNote = arp[step % arp.length];
+            playMusicNote(arpNote, now, 0.62, 0.032, 'piano');
+            if (step % 4 === 0) playMusicNote(chord[0] / 2, now, 1.0, 0.024, 'piano');
+
+            // A lyrical top-line melody floats over the accompaniment.
+            if (step % 2 === 0) {
+                const note = melody[(musicStep % melody.length)];
+                playMusicNote(note, now + 0.015, 0.9, 0.046, 'piano');
+            }
+            musicStep++;
+        }
+
+        async function startMusic() {
+            if (isMuted || !musicEnabled || document.hidden) return;
+            if (!setupMusicAudio()) return;
+            try {
+                if (audioCtx.state !== 'running') await audioCtx.resume();
+            } catch (e) {
+                return; // Browsers may require another direct tap to allow audio.
+            }
+            if (isMuted || document.hidden || !musicEnabled) return;
+            if (musicTimer) return;
+            musicBeat();
+            musicTimer = setInterval(musicBeat, 420);
+        }
+
+        function stopMusic() {
+            if (musicTimer) {
+                clearInterval(musicTimer);
+                musicTimer = null;
+            }
+            if (audioCtx) {
+                const now = audioCtx.currentTime;
+                activeMusicNodes.forEach(node => {
+                    try { node.stop(now + 0.04); } catch (e) {}
+                });
+                activeMusicNodes = [];
+            }
+        }
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                stopMusic();
+            } else if (musicEnabled && !isMuted && envelope.classList.contains('open')) {
+                startMusic();
+            }
+        });
+
+        function playChime() {
+            if (isMuted || !setupMusicAudio()) return;
+            const notes = [523.25, 659.25, 783.99, 1046.50];
+            notes.forEach((freq, index) => {
+                playMusicNote(freq, audioCtx.currentTime + index * 0.12, 1.25, 0.065, 'piano');
+            });
+        }
+
+        // Confetti Canvas Particle System
+        const canvas = document.getElementById('confetti-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = -20;
+                this.size = Math.random() * 8 + 4;
+                this.speedY = Math.random() * 3 + 2;
+                this.speedX = Math.random() * 2 - 1;
+                this.color = ['#E9A8C1', '#E9A8C1', '#D98BAA', '#D98BAA', '#E9A8C1'][Math.floor(Math.random() * 5)];
+                this.rotation = Math.random() * 360;
+                this.rotationSpeed = Math.random() * 4 - 2;
+            }
+
+            update() {
+                this.y += this.speedY;
+                this.x += this.speedX;
+                this.rotation += this.rotationSpeed;
+            }
+
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate((this.rotation * Math.PI) / 180);
+                ctx.fillStyle = this.color;
+                ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
+                ctx.restore();
+            }
+        }
+
+        function triggerConfetti() {
+            for (let i = 0; i < 80; i++) {
+                setTimeout(() => {
+                    particles.push(new Particle());
+                }, i * 20);
+            }
+        }
+
+        function animateConfetti() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = particles.length - 1; i >= 0; i--) {
+                particles[i].update();
+                particles[i].draw();
+                if (particles[i].y > canvas.height) {
+                    particles.splice(i, 1);
+                }
+            }
+            requestAnimationFrame(animateConfetti);
+        }
+        animateConfetti();
+
+        // Live countdown to the engagement celebration (Karachi time, UTC+05:00).
+        const engagementDate = new Date('2026-11-25T20:30:00+05:00').getTime();
+        function updateCountdown() {
+            const remaining = engagementDate - Date.now();
+            const message = document.getElementById('countdown-message');
+            if (remaining <= 0) {
+                ['countdown-days', 'countdown-hours', 'countdown-minutes', 'countdown-seconds'].forEach(id => {
+                    document.getElementById(id).textContent = '00';
+                });
+                message.textContent = 'Today is our special day!';
+                return;
+            }
+            const days = Math.floor(remaining / 86400000);
+            const hours = Math.floor((remaining % 86400000) / 3600000);
+            const minutes = Math.floor((remaining % 3600000) / 60000);
+            const seconds = Math.floor((remaining % 60000) / 1000);
+            document.getElementById('countdown-days').textContent = String(days).padStart(2, '0');
+            document.getElementById('countdown-hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('countdown-minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('countdown-seconds').textContent = String(seconds).padStart(2, '0');
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // DOM Elements
+        const envelope = document.getElementById('envelope');
+        const envelopeSection = document.getElementById('envelope-section');
+        const cardSection = document.getElementById('card-section');
+        const toast = document.getElementById('toast');
+        const toastMsg = document.getElementById('toast-msg');
+
+        function showToast(message) {
+            toastMsg.textContent = message;
+            toast.classList.remove('opacity-0');
+            setTimeout(() => {
+                toast.classList.add('opacity-0');
+            }, 3000);
+        }
+
+        // Open Envelope Function
+        function openEnvelope() {
+            if (envelope.classList.contains('open')) return;
+            
+            playChime();
+            musicEnabled = true;
+            startMusic();
+            envelope.classList.add('open');
+
+            setTimeout(() => {
+                triggerConfetti();
+            }, 600);
+
+            setTimeout(() => {
+                envelopeSection.classList.add('hidden');
+                cardSection.classList.remove('hidden');
+                setTimeout(() => {
+                    cardSection.classList.remove('opacity-0', 'translate-y-10');
+                }, 50);
+            }, 1600);
+        }
+
+        const sealBtn = document.getElementById('seal-btn');
+        sealBtn.addEventListener('click', (event) => {
+            event.stopPropagation();
+            openEnvelope();
+        });
+
+        // Music Toggle
+        const musicToggle = document.getElementById('music-toggle');
+        const musicIcon = document.getElementById('music-icon');
+        musicToggle.addEventListener('click', async () => {
+            // If music is not playing yet, this click starts it immediately.
+            // If it is already playing, the same button mutes it.
+            if (!isMuted && musicTimer) {
+                isMuted = true;
+                stopMusic();
+                musicIcon.className = "fas fa-volume-mute";
+                showToast("Music Muted");
+            } else {
+                isMuted = false;
+                musicEnabled = true;
+                musicIcon.className = "fas fa-music";
+                await startMusic();
+                showToast(musicTimer ? "Music Enabled" : "Tap again to enable audio");
+            }
+        });
+
+        // Copy Link Feature
+        const copyLinkBtn = document.getElementById('copy-link-btn');
+        copyLinkBtn.addEventListener('click', () => {
+            const pageUrl = window.location.href;
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(pageUrl).then(() => {
+                    showToast("Link copied to clipboard!");
+                }).catch(() => {
+                    document.execCommand('copy');
+                    showToast("Link copied!");
+                });
+            } else {
+                document.execCommand('copy');
+                showToast("Link copied!");
+            }
+        });
+
+        // WhatsApp Share Button
+        const shareBtn = document.getElementById('share-btn');
+        shareBtn.addEventListener('click', () => {
+            const currentUrl = window.location.href;
+            const text = encodeURIComponent(
+                "✨ You are cordially invited! ✨\n\n" +
+                "Join us for the Engagement Celebration of\n" +
+                "Muneeb Ur Rehman & Shifa Farhan\n\n" +
+                "📅 Date: Wednesday, Nov 25th, 2026\n" +
+                "⏰ Time: 08:30 PM\n" +
+                "📍 Venue: The Opera Ballroom, North Nazimabad, Block H, Karachi\n\n" +
+                "Tap the link to open your interactive invitation envelope 👇\n" +
+                currentUrl
+            );
+            window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
+        });
+
+        // RSVP Modal Logic
+        const rsvpModalBtn = document.getElementById('rsvp-modal-btn');
+        const rsvpModal = document.getElementById('rsvp-modal');
+        const closeRsvp = document.getElementById('close-rsvp');
+        const rsvpForm = document.getElementById('rsvp-form');
+
+        rsvpModalBtn.addEventListener('click', () => {
+            rsvpModal.classList.remove('hidden');
+        });
+
+        closeRsvp.addEventListener('click', () => {
+            rsvpModal.classList.add('hidden');
+        });
+
+        rsvpModal.addEventListener('click', (e) => {
+            if (e.target === rsvpModal) rsvpModal.classList.add('hidden');
+        });
+
+        rsvpForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('guest-name').value;
+            const count = document.getElementById('guest-count').value;
+            const status = document.querySelector('input[name="attendance"]:checked').value;
+            const wishes = document.getElementById('guest-wishes').value;
+
+            let text = `*RSVP & Wishes Response*\n\n` +
+                       `*Name:* ${name}\n` +
+                       `*Guests:* ${count}\n` +
+                       `*Status:* ${status}\n`;
+
+            if (wishes.trim() !== '') {
+                text += `*Wishes:* "${wishes}"\n`;
+            }
+
+            text += `\nLooking forward to celebrating with Muneeb Ur Rehman & Shifa Farhan!`;
+
+            window.open(`https://wa.me/923358189106?text=${encodeURIComponent(text)}`, '_blank');
+            rsvpModal.classList.add('hidden');
+            showToast("Opening WhatsApp with your RSVP message!");
+        });
+    </script>
+</body>
+</html>
